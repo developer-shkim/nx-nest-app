@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class GetWorldService {
-  async getWorld() {
+  getWorld() {
     return 'World';
   }
 }
