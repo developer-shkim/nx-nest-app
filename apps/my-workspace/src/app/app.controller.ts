@@ -1,13 +1,14 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Inject } from '@nestjs/common';
 
 import { AppService } from './app.service';
-import { GetWorldService } from '@my-workspace/my-nest-lib-2';
+import { IGetWorldService } from './get-world-service.interface';
 
 @Controller()
 export class AppController {
   constructor(
     private readonly appService: AppService,
-    private readonly getWorldService: GetWorldService
+    @Inject('IGetWorldService')
+    private readonly getWorldService: IGetWorldService
   ) {}
 
   @Get()
